@@ -8,3 +8,5 @@ router.get("/fetch", (req, res) => {
         res.send(data)
     })
 })
+
+module.exports = router
