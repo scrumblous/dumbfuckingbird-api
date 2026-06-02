@@ -18,11 +18,11 @@ router.get("/visits", (req, res) => {
       visitor_amount = result.length;
     });
     conn.query(
-      "SELECT total_visits, discord_visits, clicked_no FROM total_visits",
+      "SELECT total_visits, clicked_yes, clicked_no FROM total_visits",
       function (err, result, fields) {
         if (err) throw err;
         let real_visits =
-          Number(result[0].discord_visits) + Number(result[0].clicked_no);
+          Number(result[0].clicked_yes) + Number(result[0].clicked_no);
         res.json({
           visits: result[0].total_visits,
           real_visitors: real_visits,
